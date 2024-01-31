@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
@@ -16,7 +17,7 @@ class LoginView extends GetView<LoginController> {
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
-        color: Colors.white, // Set background color to white
+        color: Colors.white,
         child: Center(
           child: Form(
             key: controller.formKey,
@@ -83,7 +84,7 @@ class LoginView extends GetView<LoginController> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF0CBD63),
                       padding: EdgeInsets.symmetric(
-                        horizontal: 40.0, // Increase horizontal padding
+                        horizontal: 40.0,
                         vertical: 12.0,
                       ),
                     ),
@@ -96,9 +97,30 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: ()=>Get.toNamed(Routes.REGISTER),
-                  child: Text("Open Register"),
+                SizedBox(height: 50),
+                RichText(
+                  text: TextSpan(
+                    text: 'Belum punya akun? ',
+                    style: DefaultTextStyle.of(context).style.copyWith(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                      decoration: TextDecoration.none,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'Daftar!',
+                        style: TextStyle(
+                          color: Color(0xFF0CBD63),
+                          fontSize: 16.0,
+                          decoration: TextDecoration.none,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Get.toNamed(Routes.REGISTER);
+                          },
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),
