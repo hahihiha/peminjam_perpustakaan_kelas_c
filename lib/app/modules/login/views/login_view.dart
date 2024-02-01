@@ -11,7 +11,12 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LoginView'),
+        title: const Text(
+          'LoginView',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
         backgroundColor: Color(0xFF0CBD63),
       ),
@@ -72,40 +77,37 @@ class LoginView extends GetView<LoginController> {
                 ),
                 SizedBox(height: 32),
                 Obx(
-                      () => controller.loading.value
+                  () => controller.loading.value
                       ? CircularProgressIndicator(
-                    valueColor:
-                    AlwaysStoppedAnimation<Color>(Color(0xFF0CBD63)),
-                  )
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Color(0xFF0CBD63)),
+                        )
                       : ElevatedButton(
-                    onPressed: () {
-                      controller.login();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF0CBD63),
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 40.0,
-                        vertical: 12.0,
-                      ),
-                    ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white
-                      ),
-                    ),
-                  ),
+                          onPressed: () {
+                            controller.login();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF0CBD63),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 40.0,
+                              vertical: 12.0,
+                            ),
+                          ),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(fontSize: 16, color: Colors.white),
+                          ),
+                        ),
                 ),
                 SizedBox(height: 50),
                 RichText(
                   text: TextSpan(
                     text: 'Belum punya akun? ',
                     style: DefaultTextStyle.of(context).style.copyWith(
-                      fontSize: 16.0,
-                      color: Colors.black,
-                      decoration: TextDecoration.none,
-                    ),
+                          fontSize: 16.0,
+                          color: Colors.black,
+                          decoration: TextDecoration.none,
+                        ),
                     children: <TextSpan>[
                       TextSpan(
                         text: 'Daftar!',

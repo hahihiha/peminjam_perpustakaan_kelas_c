@@ -13,7 +13,12 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('RegisterView'),
+        title: const Text(
+          'RegisterView',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
         backgroundColor: Color(0xFF0CBD63),
       ),
@@ -168,10 +173,10 @@ class RegisterView extends GetView<RegisterController> {
                     text: TextSpan(
                       text: 'Sudah punya akun? ',
                       style: DefaultTextStyle.of(context).style.copyWith(
-                        fontSize: 16.0,
-                        color: Colors.black,
-                        decoration: TextDecoration.none,
-                      ),
+                            fontSize: 16.0,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
                       children: <TextSpan>[
                         TextSpan(
                           text: 'Login!',
